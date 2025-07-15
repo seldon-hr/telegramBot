@@ -7,11 +7,11 @@ Estructurando por pasos para comunicar la integración de la API de Telegram con
 - notion-client
 
 Para poder instalar las dependencias ejecutamos pip3
-`pip install --user python-telegram-bot notionclient`
+`pip install --user python-telegram-bot notion-client`
 
 #### Levantar el servicio
 Ejecutar en terminal
-`py bot_telegram_notion.py`
+`python3 bot_telegram_notion.py`
 
 
 ##### Pasos de construcción
