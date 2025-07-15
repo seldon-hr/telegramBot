@@ -1,0 +1,5 @@
+#Archivos env
+telegram_notion_bot.py
+telegram_bot_token.txt
+notion_integration_token.txt
+notion_database_id.txt
