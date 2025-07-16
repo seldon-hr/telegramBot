@@ -40,8 +40,13 @@ def main() -> None:
     logger.info(f"DB de notion list {db_info}") """
 
     """Conectar y levantar la aplicación del bot"""
+    # Creación de la app como instancia del constructor y aprobación por medio del token del bot.
     telegram_app_bot = Application.builder().token(TELEGRAM_TOKEN).build()
+
+    # Controller respectivo para ruta de /hola en el bot
     telegram_app_bot.add_handler(CommandHandler("hola",send_grettng))
+
+    # Petición que el server le va a estar preguntando constantemente a telegram si hay, un polling.
     telegram_app_bot.run_polling()
 
 
