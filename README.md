@@ -2,12 +2,18 @@
 
 Estructurando por pasos para comunicar la integración de la API de Telegram con API de Notion
 
+### Construir un virtual environment
+Antes de instalar las dependencias crear un venv conforme al proyecto
+`python3 -m venv telegram_bot_env`
+                 ⬆️ nombre del env que desees.
+`source telegram_bot_env/bin/activate`
+
 #### Integración con dependencias
 - python-telegram-bot
 - notion-client
 
-Para poder instalar las dependencias ejecutamos pip3
-`pip install --user python-telegram-bot notion-client`
+Para poder instalar las dependencias ejecutamos pip
+`pip install python-telegram-bot notion-client`
 
 #### Levantar el servicio
 Ejecutar en terminal
