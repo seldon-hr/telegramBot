@@ -1,6 +1,9 @@
 import logging
 from notion_client import Client
 
+from telegram import Update
+from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
+
 # Establecer logging
 logging.basicConfig(
     format='%(asctime)s -%(name)s %(levelname)s -%(message)s',
@@ -12,16 +15,35 @@ logger = logging.getLogger(__name__)
 # Creenciales
 NOTION_TOKEN = open('notion_integration_token.txt').read().strip()
 NOTION_DB_ID = open('notion_database_id.txt').read().strip()
+TELEGRAM_TOKEN = open('telegram_bot_token.txt').read().strip()
 
-# Initialize Notion client
+# Initialize API clients
 notion = Client(auth=NOTION_TOKEN)
+
+
+
+# Recibir mensaje del chat
+def receive_message():
+    logger.debug("Mensaje recibido")
+    
+
+async def send_grettng(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text('Hola, estas interactuando con un bot con conexión a Notion :)')
+
+
 
 
 # Main funtion
 def main() -> None:
-    logger.info(f"Nos devuelve var {notion}")
+    """ logger.info(f"Nos devuelve var {notion}")
     db_info = notion.databases.retrieve(database_id=NOTION_DB_ID)
-    logger.info(f"DB de notion list {db_info}")
+    logger.info(f"DB de notion list {db_info}") """
+
+    """Conectar y levantar la aplicación del bot"""
+    telegram_app_bot = Application.builder().token(TELEGRAM_TOKEN).build()
+    telegram_app_bot.add_handler(CommandHandler("hola",send_grettng))
+    telegram_app_bot.run_polling()
+
 
 
 
